@@ -1,91 +1,72 @@
 # 🤖 legal_data_mining
 
-Lab notebook reproducible para minería jurídica de **fichas de jurisprudencia**: metodología generalizable para limpieza, embeddings, clustering y mapeo normativo.  
+Lab notebook reproducible para minería jurídica de **fichas de jurisprudencia** (resúmenes de sentencias).  
+Ejemplo aplicado: protección de datos (GDPR) vinculada con la **Ley Chilena 21.719**.
 
-> **Ejemplo aplicado:** fichas relativas a protección de datos (GDPR), vinculadas con la **Ley Chilena 21.719**.
-
-Este pipeline funciona con **cualquier** colección de fichas de jurisprudencia y, a modo de ejemplo, ofrece:
-
-- **Representación semántica** (embeddings)  
-- **Agrupación de casos similares** (clustering)  
-- **Detección automatizada** de principios y derechos vulnerados  
-- **Salida estructurada** en JSON  
+Funcionalidades principales:
+- Embeddings semánticos (OpenAI)
+- Clustering de casos similares
+- Extracción de términos clave (TF‑IDF)
+- Visualización PCA
+- Mapeo automático a principios / derechos de la Ley 21.719
+- Salidas estructuradas (Parquet / JSONL / imágenes) + API de ejemplo
 
 ---
 
-## 🧩 Estructura del flujo
+## 🧩 Flujo de trabajo (8 notebooks)
 
-| Etapa                   | Script / Notebook        | Salida clave               |
-|-------------------------|--------------------------|----------------------------|
-| 0. Configuración global | `config.py`              | Parámetros, rutas, claves  |
-| 1. Ingesta              | `01_ingesta.ipynb`       | `df_clean.parquet`         |
-| 2. Limpieza textual     | `02_limpieza.ipynb`      | `df_tokens.parquet`        |
-| 3. Embeddings           | `03_embeddings.ipynb`    | `embeddings.npy`           |
-| 4. Clustering           | `04_clustering.ipynb`    | `cluster_plot.png`         |
-| 5. Mapeo Ley 21.719     | `05_mapping_21719.ipynb` | `resultados.jsonl`         |
+| Etapa | Notebook / Script            | Objetivo resumido                                      | Salida principal |
+|-------|------------------------------|---------------------------------------------------------|------------------|
+| 0     | `00_config.ipynb`            | Configurar entorno (dependencias, claves, rutas)       | Variables en memoria |
+| 1     | `01_ingesta.ipynb`           | Leer CSV y depurar duplicados/nulos                    | `outputs/df_clean.parquet` |
+| 2     | `02_limpieza.ipynb`          | Normalizar texto + stopwords rudimentarias             | `outputs/df_tokens.parquet` |
+| 3     | `03_embeddings.ipynb`        | Generar embeddings OpenAI (1536 dims)                  | `outputs/embeddings.npy` |
+| 4     | `04_clustering.ipynb`        | Seleccionar *k* (Silhouette) y asignar clusters        | `outputs/df_clustered.parquet`, `cluster_silhouette.png` |
+| 5     | `05_tfidf.ipynb`             | Términos diferenciales por cluster (TF‑IDF)            | `outputs/cluster_keywords.json` |
+| 6     | `06_visualizacion.ipynb`     | Proyección PCA 2D y gráfico de clusters                | `outputs/pca_clusters.png` |
+| 7     | `07_mapping_21719.ipynb`     | Mapeo Ley 21.719 + API demo                            | `outputs/resultados.jsonl` |
+
+**Badges Colab:** próximamente cada notebook tendrá su enlace:
+
+[![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey)](#)
 
 ---
 
 ## 📦 Requisitos
 
-- Python ≥ 3.10  
-- OpenAI API Key (para embeddings)  
-- Paquetes en `requirements.txt`  
+- Python ≥ 3.10  
+- OpenAI API Key  
+- Dependencias en `requirements.txt`  
 
 ---
 
-## 🚀 Ejecución local
+## 🚀 Ejecución (local y Colab)
 
-1. **Clona este repositorio**:
-
-   ```bash
-   git clone https://github.com/mtsvk/legal_data_mining.git
-   cd legal_data_mining
+### Google Colab
+1. Abre el notebook deseado (badge).
+2. Define tu clave de OpenAI en la primera celda:
+   ```python
+   import os
+   os.environ["OPENAI_API_KEY"] = "sk-xxxxxxxxxxxxxxxx"
    ```
+3. Ejecuta los notebooks en orden 0 → 7.
 
-2. **Crea y activa un entorno virtual**:
-
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate       # En Windows: .venv\Scripts\activate
-   ```
-
-3. **Instala las dependencias**:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Lanza JupyterLab** y ejecuta los notebooks en orden (o ábrelos en Google Colab):
-
-   ```bash
-   jupyter lab
-   ```
-
----
-
-## ☁️ Ejecución en Colab
-
-Puedes ejecutar y editar cada script directamente en Google Colab. Los enlaces estarán disponibles próximamente:
-
-| Etapa                   | Script                  | Open in Colab    |
-|-------------------------|-------------------------|------------------|
-| 0. Configuración global | `00_config.py`          | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
-| 1. Ingesta              | `01_ingesta.ipynb`      | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
-| 2. Limpieza textual     | `02_limpieza.ipynb`     | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
-| 3. Embeddings           | `03_embeddings.ipynb`   | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
-| 4. Clustering           | `04_clustering.ipynb`   | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
-| 5. Mapeo Ley 21.719     | `05_mapping_21719.ipynb`| ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
-
-## 🔐 Variables sensibles
-
-Este proyecto requiere una clave de API de OpenAI. Puedes definirla en tu entorno:
+### Local
 
 ```bash
-export OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxx"
+git clone https://github.com/mtsvk/legal_data_mining.git
+cd legal_data_mining
+
+python -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+
+pip install -r requirements.txt
+export OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxx"  # o usar archivo .env
+
+jupyter lab
 ```
 
-O crear un archivo `.env` en la raíz:
+Archivo `.env` opcional:
 
 ```env
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx
@@ -97,10 +78,9 @@ OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx
 
 ```
 legal_data_mining/
-├─ data/                  # Datos de entrada
-├─ outputs/               # Resultados (Parquet, JSONL, imágenes)
-├─ notebooks/             # Notebooks ejecutables
-├─ config.py              # Parámetros globales
+├─ data/            # Datos de entrada
+├─ notebooks/       # Notebooks ejecutables
+├─ outputs/         # Parquet / JSONL / imágenes
 ├─ requirements.txt
 └─ README.md
 ```
@@ -109,21 +89,18 @@ legal_data_mining/
 
 ## 📜 Licencia
 
-- **Código fuente**: Licencia MIT  
-- **Documentación y notebooks**: CC BY 4.0  
-  Eres libre de usar, adaptar y redistribuir este trabajo con atribución adecuada.
+- Código fuente: MIT  
+- Documentación y notebooks: CC BY 4.0  
 
 ---
 
 ## ✍️ Cita sugerida
 
-Si reutilizas esta metodología en investigación académica o técnica, considera citarla así:
-
-> Vukusic, Matías (2025). **Metodología reproducible para minería de fichas de jurisprudencia**. GitHub repository.  
-> Disponible en: https://github.com/mtsvk/legal_data_mining
+Vukusic, Matías (2025). *Metodología reproducible para minería de fichas de jurisprudencia*. GitHub repository.  
+https://github.com/mtsvk/legal_data_mining
 
 ---
 
 ## 🤝 Contacto
 
-¿Comentarios, errores, propuestas? Abre un [Issue](https://github.com/mtsvk/legal_data_mining/issues) o escríbeme a `matias@vukusic.cl`.
+¿Comentarios o sugerencias? Abre un [Issue](https://github.com/mtsvk/legal_data_mining/issues) o escribe a `matias@vukusic.cl`.
