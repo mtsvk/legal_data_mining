@@ -26,7 +26,7 @@ Funcionalidades principales:
 | 6     | `06_visualizacion.ipynb`     | Proyección PCA 2D y gráfico de clusters                | `outputs/pca_clusters.png` |
 | 7     | `07_mapping_21719.ipynb`     | Mapeo Ley 21.719 + API demo                            | `outputs/resultados.jsonl` |
 
-**Badges Colab:** próximamente cada notebook tendrá su enlace:
+**Google Colab:**:
 
 [![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey)](#)
 
