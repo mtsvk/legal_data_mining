@@ -66,20 +66,21 @@ Este pipeline funciona con **cualquier** colección de fichas de jurisprudencia 
 
 ## ☁️ Ejecución en Colab
 
-Puedes ejecutar y editar cada script directamente en Google Colab. Haz clic en el badge correspondiente para abrirlo:
+Puedes ejecutar y editar cada script directamente en Google Colab. Los enlaces estarán disponibles próximamente:
 
-| Etapa                   | Script                | Open in Colab                                                                                                      |
-|-------------------------|-----------------------|--------------------------------------------------------------------------------------------------------------------|
-| 0. Configuración global | `00_config.py`        | [![![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey)](#)|
-| 1. Ingesta              | `01_ingesta.ipynb`       | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/01_ingesta.py) |
-| 2. Limpieza textual     | `02_limpieza.ipynb`      | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/02_limpieza.py) |
-| 3. Embeddings           | `03_embeddings.ipynb`    | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/03_embeddings.py) |
-| 4. Clustering           | `04_clustering.ipynb`    | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/04_clustering.py) |
-| 5. Mapeo Ley 21.719     | `05_mapping_21719.ipynb` | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/05_mapping_21719.py) |
+| Etapa                   | Script                  | Open in Colab    |
+|-------------------------|-------------------------|------------------|
+| 0. Configuración global | `00_config.py`          | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
+| 1. Ingesta              | `01_ingesta.ipynb`      | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
+| 2. Limpieza textual     | `02_limpieza.ipynb`     | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
+| 3. Embeddings           | `03_embeddings.ipynb`   | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
+| 4. Clustering           | `04_clustering.ipynb`   | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
+| 5. Mapeo Ley 21.719     | `05_mapping_21719.ipynb`| ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
 
-> **Nota:** Al guardar cambios en Colab, usa **File → Save a copy in GitHub** y selecciona `scripts/<nombre_script>.py` en tu repositorio para mantener tu historial actualizado.
-
----
+> **Nota:** En cuanto estén listos, reemplaza cada badge “Próximamente” por el enlace real:  
+> ```markdown
+> [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/notebooks/XX_nombre.ipynb)
+> ```
 
 ## 🔐 Variables sensibles
 
