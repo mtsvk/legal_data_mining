@@ -62,6 +62,23 @@ Este cuaderno ejecutable permite analizar jurisprudencia estructurada (fichas de
 
 ---
 
+## ☁️ Ejecución en Colab
+
+Puedes ejecutar y editar cada script directamente en Google Colab. Haz clic en el badge correspondiente para abrirlo:
+
+| Etapa                   | Script                | Open in Colab                                                                                                      |
+|-------------------------|-----------------------|--------------------------------------------------------------------------------------------------------------------|
+| 0. Configuración global | `00_config.py`        | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/00_config.py) |
+| 1. Ingesta              | `01_ingesta.py`       | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/01_ingesta.py) |
+| 2. Limpieza textual     | `02_limpieza.py`      | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/02_limpieza.py) |
+| 3. Embeddings           | `03_embeddings.py`    | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/03_embeddings.py) |
+| 4. Clustering           | `04_clustering.py`    | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/04_clustering.py) |
+| 5. Mapeo Ley 21.719     | `05_mapping_21719.py` | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/scripts/05_mapping_21719.py) |
+
+> **Nota:** Al guardar cambios en Colab, usa **File → Save a copy in GitHub** y selecciona `scripts/<nombre_script>.py` en tu repositorio para mantener tu historial actualizado.
+
+---
+
 ## 🔐 Variables sensibles
 
 Este proyecto requiere una clave de API de OpenAI. Puedes definirla en tu entorno:
