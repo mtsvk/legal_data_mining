@@ -1,4 +1,4 @@
-# legal_data_mining
+# 🤖 legal_data_mining
 
 Lab notebook reproducible para minería jurídica de fichas de protección de datos: limpieza, embeddings, clustering + mapeo automático a la Ley 21.719 (Chile).
 
