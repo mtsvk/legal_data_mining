@@ -77,11 +77,6 @@ Puedes ejecutar y editar cada script directamente en Google Colab. Los enlaces e
 | 4. Clustering           | `04_clustering.ipynb`   | ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
 | 5. Mapeo Ley 21.719     | `05_mapping_21719.ipynb`| ![Próximamente](https://img.shields.io/badge/open%20in%20colab-próximamente-lightgrey) |
 
-> **Nota:** En cuanto estén listos, reemplaza cada badge “Próximamente” por el enlace real:  
-> ```markdown
-> [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tu_usuario/legal_data_mining/blob/main/notebooks/XX_nombre.ipynb)
-> ```
-
 ## 🔐 Variables sensibles
 
 Este proyecto requiere una clave de API de OpenAI. Puedes definirla en tu entorno:
