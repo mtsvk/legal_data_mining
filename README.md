@@ -1,2 +1,114 @@
 # legal_data_mining
-Lab notebook reproducible para minería jurídica de fichas de protección de datos: limpieza, embeddings, clustering + mapeo Ley 21.719 (Chile)
+
+Lab notebook reproducible para minería jurídica de fichas de protección de datos: limpieza, embeddings, clustering + mapeo automático a la Ley 21.719 (Chile).
+
+Este cuaderno ejecutable permite analizar jurisprudencia estructurada (fichas de jurisprudencia o bases expertas chilenas) y obtener:
+
+- **Representación semántica** (embeddings)  
+- **Agrupación de casos similares** (clustering)  
+- **Detección automatizada** de principios y derechos vulnerados  
+- **Salida estructurada** en formato JSON  
+
+---
+
+## 🧩 Estructura del flujo
+
+| Etapa                   | Script / Notebook           | Salida clave             |
+|-------------------------|-----------------------------|--------------------------|
+| 0. Configuración global | `config.py`                 | Parámetros, rutas, claves |
+| 1. Ingesta              | `01_ingesta.ipynb`          | `df_clean.parquet`       |
+| 2. Limpieza textual     | `02_limpieza.ipynb`         | `df_tokens.parquet`      |
+| 3. Embeddings           | `03_embeddings.ipynb`       | `embeddings.npy`         |
+| 4. Clustering           | `04_clustering.ipynb`       | `cluster_plot.png`       |
+| 5. Mapeo Ley 21.719     | `05_mapping_21719.ipynb`    | `resultados.jsonl`       |
+
+---
+
+## 📦 Requisitos
+
+- Python ≥ 3.10  
+- OpenAI API Key (para generar embeddings)  
+- Paquetes listados en `requirements.txt`  
+
+---
+
+## 🚀 Ejecución local
+
+1. **Clona este repositorio**:
+
+   ```bash
+   git clone https://github.com/mtsvk/legal_data_mining.git
+   cd legal_data_mining
+   ```
+
+2. **Crea y activa un entorno virtual**:
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate       # En Windows: .venv\Scripts\activate
+   ```
+
+3. **Instala las dependencias**:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Lanza JupyterLab** y ejecuta los notebooks en orden (o ábrelos en Google Colab):
+
+   ```bash
+   jupyter lab
+   ```
+
+---
+
+## 🔐 Variables sensibles
+
+Este proyecto requiere una clave de API de OpenAI. Puedes definirla en tu entorno:
+
+```bash
+export OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxx"
+```
+
+O crear un archivo `.env` en la raíz:
+
+```env
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx
+```
+
+---
+
+## 📂 Estructura de carpetas
+
+```
+legal_data_mining/
+├─ data/                  # Datos de entrada
+├─ outputs/               # Resultados (Parquet, JSONL, imágenes)
+├─ notebooks/             # Notebooks ejecutables
+├─ config.py              # Parámetros globales
+├─ requirements.txt
+└─ README.md
+```
+
+---
+
+## 📜 Licencia
+
+- **Código fuente**: Licencia MIT  
+- **Documentación y notebooks**: CC BY 4.0  
+  Eres libre de usar, adaptar y redistribuir este trabajo con atribución adecuada.
+
+---
+
+## ✍️ Cita sugerida
+
+Si reutilizas esta metodología en investigación académica o técnica, considera citarla así:
+
+> Vukusic, Matías (2025). **Metodología reproducible para minería de fichas de jurisprudencia**. GitHub repository.  
+> Disponible en: https://github.com/tu_usuario/legal_data_mining
+
+---
+
+## 🤝 Contacto
+
+¿Comentarios, errores, propuestas? Abre un [Issue](https://github.com/mtsvk/legal_data_mining/issues) o escríbeme a `matias@vukusic.cl`.
