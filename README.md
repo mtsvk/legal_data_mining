@@ -96,7 +96,7 @@ legal_data_mining/
 
 ## ✍️ Cita sugerida
 
-Vukusic, Matías (2025). *Metodología reproducible para minería de fichas de jurisprudencia*. GitHub repository.  
+Vukusic, Matías (2025). *Minería de fichas de jurisprudencia*. GitHub repository.  
 https://github.com/mtsvk/legal_data_mining
 
 ---
