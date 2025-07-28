@@ -14,7 +14,7 @@ Flujo de minería de datos jurídicos para “fichas de jurisprudencia” (resú
 ├── requirements.txt
 ├── pipeline_legal_data_mining_20250725.ipynb
 ├── pipeline_legal_data_mining_20250725.py
-└── outputs/                       ← Generado tras ejecutar la pipeline
+└── outputs/                       ← Generado tras ejecutar la pipeline, disponibles en https://github.com/mtsvk/legal_data_mining/blob/main/outputs.zip
     ├── config.json
     ├── gdpr_clean.parquet
     ├── gdpr_norm.parquet
