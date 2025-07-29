@@ -1,8 +1,0 @@
-openai
-python-dotenv
-tqdm
-matplotlib
-scikit-learn
-joblib
-pandas
-numpy
