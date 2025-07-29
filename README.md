@@ -1,6 +1,7 @@
 # legal_data_mining con LEGAL_BERT
 
-Descripción Pendiente
+---
+Branch de legal_data_mining para probar Metodología usando LEGAL_BERT
 ---
 
 ## 📄 Licencia
